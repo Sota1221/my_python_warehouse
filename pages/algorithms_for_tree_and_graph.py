@@ -79,7 +79,7 @@ st.code(code, language="python")
 
 
 st.markdown("### Recursive DFS for Grid")
-st.text("グリッドを探索する場合もほぼ同様です。\nvisitedを使う代わりにグリッド上の値を-1や#などに置き換えていやり方もよく使われます。")
+st.text("グリッドを探索する場合もほぼ同様です。\nvisitedを使う代わりにグリッド上の値を-1や#などに置き換える方法もよく使われます。")
 code = """
 def dfs(r, c):
     if not (0 <= r < ROW and 0 <= c < COL) or grid[r][c] == -1:
