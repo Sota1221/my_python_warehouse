@@ -42,7 +42,7 @@ st.markdown("以下のxに関する２次方程式を解きます。")
 st.latex(r"""
 ax^2 + bx + c = 0
 """)
-st.text("ただし a > 0 とします。")
+st.text("ただし a ≠ 0 とします。")
 
 st.markdown("#### 使っている公式")
 st.latex(r"""
