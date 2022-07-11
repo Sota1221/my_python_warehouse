@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Tree/Graph Algorithm")
+st.title("Tree/Graph Algorithms")
 st.text("まず探索アルゴリズムを紹介します。\nその後、それ以外のTree, Graph特有のよく使うアルゴリズムを紹介します。")
 
 st.markdown("# Search Algorithms")
@@ -94,7 +94,6 @@ dfs(start_r, start_c)
 """
 st.text("特定パスを見つける場合はfor文を抜けた後、grid[r][c]をもとの値に戻すやり方がよく使われます。")
 st.code(code, language="python")
-st.text("Time Complexity: O(n)\nSpace Complexity: O(n)")
 
 
 st.markdown("### Iterative DFS for Tree")
@@ -129,7 +128,6 @@ def dfs(start_node):
                 visited.add(neighbor_node)
 """
 st.code(code, language="python")
-st.text("Time Complexity: O(n)\nSpace Complexity: O(n)")
 
 
 st.markdown("### Iterative DFS for Grid")
@@ -148,7 +146,6 @@ def dfs(start_r, start_c):
 dfs(start_r, start_c)
 """
 st.code(code, language="python")
-st.text("Time Complexity: O(n)\nSpace Complexity: O(n)")
 
 
 
@@ -193,7 +190,6 @@ level_order(root)
 st.code(code, language="python")
 
 
-st.text("Time Complexity: O(n)\nSpace Complexity: O(n)")
 st.markdown("#### Related Problems")
 st.markdown("* [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)")
 st.markdown("* [662. Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/)")
@@ -274,7 +270,6 @@ path = get_path()
 """
 st.code(code, language="python")
 st.text("経路復元をしない場合は、curr_to_prevがいりません。")
-st.text("Time Complexity: O((E + V)log V)\nSpace Complexity: O(V + E)")
 
 st.markdown("#### Related Problems")
 st.markdown("* [743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)")

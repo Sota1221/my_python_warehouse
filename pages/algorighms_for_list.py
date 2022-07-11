@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.markdown("# List Algorithm")
+st.markdown("# List Algorithms")
 
 st.markdown("## Prefix Sum")
 st.markdown("先頭から特定インデックスまでの和を返す`prefixsum`リストを作ります。")
