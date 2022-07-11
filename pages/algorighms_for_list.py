@@ -44,7 +44,7 @@ st.markdown("* [169. Majority Element](https://leetcode.com/problems/majority-el
 
 
 st.markdown("## Quick Select")
-st.markdown("k番目に大きい要素を探索します。")
+st.markdown("k番目に小さい要素を探索します。\nここでは「k番目に小さい要素」=「昇順に並べたリストのインデックスkの要素」とします。")
 code = """
 def partition(l, r, pivot_idx):
     nums[r], nums[pivot_idx] = nums[pivot_idx], nums[r]
