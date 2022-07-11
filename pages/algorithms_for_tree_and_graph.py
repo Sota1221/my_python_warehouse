@@ -1,16 +1,17 @@
 import streamlit as st
 
 st.title("Tree/Graph Algorithms")
-st.text("まず探索アルゴリズムを紹介します。\nその後、それ以外のTree, Graph特有のよく使うアルゴリズムを紹介します。")
+st.markdown("まず探索アルゴリズムを紹介します。")
+st.markdown("その後、それ以外のTree, Graph特有のよく使うアルゴリズムを紹介します。")
 
 st.markdown("# Search Algorithms")
 
 st.markdown("## Depth First Search")
-st.text("いわゆる「DFS」「深さ優先探索」です。")
+st.markdown("いわゆる「DFS」「深さ優先探索」です。")
 
 st.markdown("### Recursive DFS for Tree")
-st.text("再帰を利用する実装です。")
-st.text("treeを探索する場合。")
+st.markdown("再帰を利用する実装です。")
+st.markdown("treeを探索する場合。")
 code = """
 def dfs(node):
     if node is None:
@@ -45,7 +46,7 @@ def inorder(root):
     inorder(root.right)
 """
 st.code(code, language="python")
-st.text("BST(Binary Search Tree, 二分探索木)を小さい要素から辿るときによく使います。")
+st.markdown("BST(Binary Search Tree, 二分探索木)を小さい要素から辿るときによく使います。")
 st.markdown("#### Related Problems")
 st.markdown("* [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)")
 
@@ -57,12 +58,13 @@ def postorder(root):
     print(root.val)
 """
 st.code(code, language="python")
-st.text("binary treeでなくとも、全てのchild(next node)を回ってからそれらのparentにアクセスする場合、postorderと見なせます。\npostorderで拾っていった要素を逆順にソートすると topological sort(トポロジカルソート)になります。")
+st.markdown("binary treeでなくとも、全てのchild(next node)を回ってからそれらのparentにアクセスする場合、postorderと見なせます。")
+st.markdown("npostorderで拾っていった要素を逆順にソートすると topological sort(トポロジカルソート)になります。")
 
 
 st.markdown("### Recursive DFS for Graph")
-st.text("続いて、dfsでグラフを探索する場合です。treeのときとほぼ同じ考え方です。")
-st.text("Gは現在のノードに対し、隣接したノードのセットを返す辞書です。")
+st.markdown("続いて、dfsでグラフを探索する場合です。treeのときとほぼ同じ考え方です。")
+st.markdown("Gは現在のノードに対し、隣接したノードのセットを返す辞書です。")
 code = """
 def dfs(node):
     if node in visited:
@@ -79,7 +81,8 @@ st.code(code, language="python")
 
 
 st.markdown("### Recursive DFS for Grid")
-st.text("グリッドを探索する場合もほぼ同様です。\nvisitedを使う代わりにグリッド上の値を-1や#などに置き換える方法もよく使われます。")
+st.markdown("グリッドを探索する場合もほぼ同様です。")
+st.markdown("visitedを使う代わりにグリッド上の値を-1や#などに置き換える方法もよく使われます。")
 code = """
 def dfs(r, c):
     if not (0 <= r < ROW and 0 <= c < COL) or grid[r][c] == -1:
@@ -92,13 +95,13 @@ def dfs(r, c):
 ROW, COL = len(grid), len(grid[0])
 dfs(start_r, start_c)
 """
-st.text("特定パスを見つける場合はfor文を抜けた後、grid[r][c]をもとの値に戻すやり方がよく使われます。")
+st.markdown("特定パスを見つける場合はfor文を抜けた後、grid[r][c]をもとの値に戻すやり方がよく使われます。")
 st.code(code, language="python")
 
 
 st.markdown("### Iterative DFS for Tree")
-st.text("stackを用いた繰り返し処理による実装です。")
-st.text("treeを探索する場合。")
+st.markdown("stackを用いた繰り返し処理による実装です。")
+st.markdown("treeを探索する場合。")
 code = """
 def dfs(root):
     stack = [root]
@@ -115,7 +118,7 @@ st.code(code, language="python")
 
 
 st.markdown("### Iterative DFS for Graph")
-st.text("グラフを探索する場合。")
+st.markdown("グラフを探索する場合。")
 code = """
 def dfs(start_node):
     stack, visited = [start_node], {start_node}
@@ -131,7 +134,7 @@ st.code(code, language="python")
 
 
 st.markdown("### Iterative DFS for Grid")
-st.text("グリッドを探索する場合。")
+st.markdown("グリッドを探索する場合。")
 code = """
 def dfs(start_r, start_c):
     stack = [(start_r, start_c))]
@@ -150,10 +153,10 @@ st.code(code, language="python")
 
 
 st.markdown("## Breadth First Search for Tree")
-st.text("いわゆる「BFS」「幅優先探索」です。以下はtree構造で探索する場合です。")
+st.markdown("いわゆる「BFS」「幅優先探索」です。以下はtree構造で探索する場合です。")
 
 st.markdown("### Iterative BFS for Tree")
-st.text("BFSはqueueを用いた繰り返し処理で実装します。")
+st.markdown("BFSはqueueを用いた繰り返し処理で実装します。")
 code = """
 from collections import deque
 def bfs(root):
@@ -170,7 +173,7 @@ bfs(root)
 st.code(code, language="python")
 
 st.markdown("### Level Order BFS")
-st.text("もし各レベルが終わるたびに何かの処理をする必要がある場合は次のようにします。")
+st.markdown("もし各レベルが終わるたびに何かの処理をする必要がある場合は次のようにします。")
 code = """
 from collections import deque
 def level_order(root):
@@ -196,7 +199,7 @@ st.markdown("* [662. Maximum Width of Binary Tree](https://leetcode.com/problems
 
 
 st.markdown("### BFS for Graph")
-st.text("グラフで行う場合もTreeのときとほぼ同じです。")
+st.markdown("グラフで行う場合もTreeのときとほぼ同じです。")
 
 code = """
 from collections import deque
@@ -214,7 +217,7 @@ st.code(code, language="python")
 
 
 st.markdown("### BFS for Grid")
-st.text("グリッドもとくに大きな変更はありません。")
+st.markdown("グリッドもとくに大きな変更はありません。")
 
 code = """
 from collections import deque
@@ -235,7 +238,8 @@ st.code(code, language="python")
 
 st.markdown("## Shortest Path for Weighted Graph")
 st.markdown("### Dijkstra")
-st.text("辺が非負の重みの場合、ダイクストラアルゴリズムを使います。経路復元も併せて実装します。\nここでは1からnまでのn個のノードから成る重み付きグラフがあるとします。")
+st.markdown("辺が非負の重みの場合、ダイクストラアルゴリズムを使います。経路復元も併せて実装します。")
+st.markdown("ここでは1からnまでのn個のノードから成る重み付きグラフがあるとします。")
 
 code = """
 from heapq import heappush, heappop
@@ -269,7 +273,7 @@ node_to_dist, curr_to_prev = dijkstra()
 path = get_path()
 """
 st.code(code, language="python")
-st.text("経路復元をしない場合は、curr_to_prevがいりません。")
+st.markdown("経路復元をしない場合は、curr_to_prevがいりません。")
 
 st.markdown("#### Related Problems")
 st.markdown("* [743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)")
