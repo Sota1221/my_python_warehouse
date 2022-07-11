@@ -29,11 +29,11 @@ def is_valid_quadrilateral(x1, y1, x2, y2, x3, y3, x4, y4):
 
 
 st.markdown("# Math Solver")
-st.text("このページでは便利な数学計算がおこなえます。")
+st.markdown("このページでは便利な数学計算がおこなえます。")
 
 
 st.markdown("### ２次方程式の解")
-st.text("以下のxに関する２次方程式を解きます。")
+st.markdown("以下のxに関する２次方程式を解きます。")
 st.latex(r"""
 ax^2 + bx + c = 0
 """)
@@ -69,7 +69,7 @@ with st.form(key="quadratic_eq"):
 
 
 st.markdown("### 座標平面上の三角形の面積")
-st.text("座標平面上の3点(x1, y1), (x2, y2), (x3, y3)から成る三角形の面積を計算します。")
+st.markdown("座標平面上の3点(x1, y1), (x2, y2), (x3, y3)から成る三角形の面積を計算します。")
 
 st.markdown("#### 使っている公式")
 st.latex(r"""
@@ -98,7 +98,8 @@ st.markdown("### 座標平面上の四角形の面積")
 st.text("座標平面上の4点(x1, y1), (x2, y2), (x3, y3), (x4, y4)から成る四角形の面積を計算します。\nただし上記4点の順番でたどったときに構成される四角形が対象です。")
 
 st.markdown("### 使っている公式")
-st.text("凸四角形、凹四角形どちらの場合でも、2つの三角形に分割して面積和を求めます。")
+st.markdown("2つの三角形に分割して面積和を求めます。")
+st.markdown("凹四角形の場合は(x3, y3)で凹部を作るとします。")
 st.latex(r"""
 area1  = \frac{|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|}{2}
 """)
@@ -128,7 +129,17 @@ with st.form(key="quadrilateral_area"):
             if is_valid_quadrilateral(x1, y1, x2, y2, x3, y3, x4, y4):
                 area1 = get_triagle_area(x1, y1, x2, y2, x3, y3)
                 area2 = get_triagle_area(x1, y1, x3, y3, x4, y4)
-                area = area1 + area2
+                area3 = get_triagle_area(x2, y2, x3, y3, x4, y4)
+                # concave
+                if area1 + area2 == area3:
+                    area = area1 + area2
+                elif area1 + area3 == area2:
+                    area = area1 + area3
+                elif area2 + area3 == area1:
+                    area = area2 + area3
+                # convex
+                else:
+                    area = area1 + area2
                 st.text(f"面積: {area}")
             else:
                 st.text("正しい四角形の座標を入力してください！")
