@@ -6,7 +6,7 @@ st.text("まず探索アルゴリズムを紹介します。\nその後、それ
 st.markdown("# Search Algorithms")
 
 st.markdown("## Depth First Search")
-st.text("いわゆる「DFS」「深さS優先探索」です。")
+st.text("いわゆる「DFS」「深さ優先探索」です。")
 
 st.markdown("### Recursive DFS for Tree")
 st.text("再帰を利用する実装です。")
