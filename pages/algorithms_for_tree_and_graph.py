@@ -234,7 +234,7 @@ st.code(code, language="python")
 
 
 st.markdown("## Shortest Path for Weighted Graph")
-st.markdown("### Dijekstra")
+st.markdown("### Dijkstra")
 st.text("辺が非負の重みの場合、ダイクストラアルゴリズムを使います。経路復元も併せて実装します。\nここでは1からnまでのn個のノードから成る重み付きグラフがあるとします。")
 
 code = """
