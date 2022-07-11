@@ -24,7 +24,7 @@ dfs(root)
 st.code(code, language="python")
 
 st.markdown("### Preorder DFS for Binary Tree")
-st.text("Binary Tree (二分木)を探索場合は、以下の3種類のdfsのたどり方があります。")
+st.markdown("Binary Tree (二分木)を探索場合は、以下の3種類のdfsのたどり方があります。")
 code = """
 def preorder(root):
     if root is None:
