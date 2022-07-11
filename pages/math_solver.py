@@ -21,11 +21,16 @@ def is_valid_quadrilateral(x1, y1, x2, y2, x3, y3, x4, y4):
         and get_triagle_area(x2, y2, x3, y3, x4, y4) == 0):
         return False
     # check intersectoin
-    sign11 = (x1 - x2)*(y3 - y1) + (y1 - y2)*(x1 - x3)
-    sign12 = (x1 - x2)*(y4 - y1) + (y1 - y2)*(x1 - x4)
-    sign21 = (x3 - x4)*(y1 - y3) + (y3 - y4)*(x3 - x1)
-    sign22 = (x3 - x4)*(y2 - y3) + (y3 - y4)*(x3 - x2)
-    return sign11*sign12 >= 0 and sign21*sign22 >= 0
+    for _ in range(2):
+        sign11 = (x1 - x2)*(y3 - y1) + (y1 - y2)*(x1 - x3)
+        sign12 = (x1 - x2)*(y4 - y1) + (y1 - y2)*(x1 - x4)
+        sign21 = (x3 - x4)*(y1 - y3) + (y3 - y4)*(x3 - x1)
+        sign22 = (x3 - x4)*(y2 - y3) + (y3 - y4)*(x3 - x2)
+        if sign11*sign12 < 0 and sign21*sign22 < 0:
+            return False
+        x1, x2, x3, x4 = x4, x1, x2, x3
+        y1, y2, y3, y4 = y4, y1, y2, y3
+    return True
 
 
 st.markdown("# Math Solver")
