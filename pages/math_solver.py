@@ -28,7 +28,7 @@ def is_valid_quadrilateral(x1, y1, x2, y2, x3, y3, x4, y4):
     return sign11*sign12 >= 0 and sign21*sign22 >= 0
 
 
-st.markdown("# Basic Math Solver")
+st.markdown("# Math Solver")
 st.text("このページでは便利な数学計算がおこなえます。")
 
 
