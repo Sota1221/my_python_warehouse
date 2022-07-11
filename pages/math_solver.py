@@ -50,19 +50,19 @@ with st.form(key="quadratic_eq"):
     c = st.text_input("c")
     submit_btn_quadratic_eq = st.form_submit_button("Calculate")
     if submit_btn_quadratic_eq:
-        if a and b and c and is_num(a) and a != 0 and is_num(b) and is_num(c):
+        if a and b and c and is_num(a) and float(a) != 0 and is_num(b) and is_num(c):
             a, b, c = float(a), float(b), float(c)
             D = b**2 - 4*a*c
             if D < 0:
-                ans1 = -b - math.sqrt(-D)*1j
-                ans2 = -b + math.sqrt(-D)*1j
+                ans1 = (-b - math.sqrt(-D)*1j)/(2*a)
+                ans2 = (-b + math.sqrt(-D)*1j)/(2*a)
                 st.text(f"x = {str(ans1)} or x = {str(ans2)}")
             elif D == 0:
-                ans = -b
+                ans = -b/(2*a)
                 st.text(f"x = {str(ans)}")
             else:
-                ans1 = -b - math.sqrt(D)
-                ans2 = -b + math.sqrt(D)
+                ans1 = (-b - math.sqrt(D))/(2*a)
+                ans2 = (-b + math.sqrt(D))/(2*a)
                 st.text(f"x = {str(ans1)} or x = {str(ans2)}")
         else:
             st.text("正しい数字を入力してください！")
