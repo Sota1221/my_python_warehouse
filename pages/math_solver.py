@@ -133,18 +133,21 @@ with st.form(key="quadrilateral_area"):
             y1, y2, y3, y4 = float(y1), float(y2), float(y3), float(y4)
             if is_valid_quadrilateral(x1, y1, x2, y2, x3, y3, x4, y4):
                 area1 = get_triagle_area(x1, y1, x2, y2, x3, y3)
-                area2 = get_triagle_area(x1, y1, x3, y3, x4, y4)
-                area3 = get_triagle_area(x2, y2, x3, y3, x4, y4)
+                area2 = get_triagle_area(x1, y1, x2, y2, x4, y4)
+                area3 = get_triagle_area(x1, y1, x3, y3, x4, y4)
+                area4 = get_triagle_area(x2, y2, x3, y3, x4, y4)
                 # concave
-                if area1 + area2 == area3:
-                    area = area1 + area2
-                elif area1 + area3 == area2:
+                if area1 + area2 + area3 == area4:
                     area = area1 + area3
-                elif area2 + area3 == area1:
-                    area = area2 + area3
+                elif area1 + area2 + area4 == area3:
+                    area = area2 + area4
+                elif area1 + area3 + area4 == area2:
+                    area = area1 + area3
+                elif area2 + area3 + area4 == area1:
+                    area = area2 + area4
                 # convex
                 else:
-                    area = area1 + area2
+                    area = area1 + area3
                 st.text(f"面積: {area}")
             else:
                 st.text("正しい四角形の座標を入力してください！")
